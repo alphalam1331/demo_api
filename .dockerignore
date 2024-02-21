@@ -1,0 +1,10 @@
+Dockerfile
+env/*
+!env/*.prod
+!env/*.dev
+.dockerignore
+node_modules/
+dist/
+test/
+.git
+.gitignore

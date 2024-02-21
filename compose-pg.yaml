@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  pg:
+    image: postgres
+    container_name: demo_db_pg_${NODE_ENV}
+    restart: always
+    env_file: 'env/.env.${NODE_ENV}'
+    expose:
+      - 5432
+    ports:
+      - '${LOCAL_PG_PORT}:5432'
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: demo_pgadmin_${NODE_ENV}
+    restart: always
+    env_file: 'env/.env.${NODE_ENV}'
+    expose:
+      - 80
+    ports:
+      - '${LOCAL_PGADMIN_PORT}:80'
+    depends_on:
+      - pg

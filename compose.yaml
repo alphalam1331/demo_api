@@ -1,0 +1,29 @@
+version: '3.5'
+
+services:
+  nest_app:
+    build:
+      context: .
+      target: ${NODE_ENV}
+      dockerfile: Dockerfile
+    image: demo_nest_app_${NODE_ENV}
+    container_name: demo_nest_app_${NODE_ENV}
+    restart: unless-stopped
+    env_file: 'env/.env.${NODE_ENV}'
+    volumes:
+      - .:/home/demo
+      - /home/demo/node_modules
+    expose:
+      - 3000
+    ports:
+      - '${LOCAL_APP_PORT}:3000'
+    depends_on:
+      - pg
+  pg:
+    extends:
+      file: compose-pg.yaml
+      service: pg
+  pgadmin:
+    extends:
+      file: compose-pg.yaml
+      service: pgadmin

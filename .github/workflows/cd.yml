@@ -1,0 +1,23 @@
+name: Github CD action
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - name: Deploy built file to remote server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.API_NODE_HOST}}
+          username: ${{secrets.API_NODE_USER}}
+          key: ${{secrets.API_NODE_PRIVATE_KEY}}
+          script: |
+            cd $HOME/to_do_server
+            git pull
+            docker compose pull
