@@ -20,4 +20,4 @@ jobs:
           script: |
             cd $HOME/demo_api
             git pull
-            docker compose pull
+            pnpm prodc pull
