@@ -14,10 +14,10 @@ jobs:
       - name: Deploy built file to remote server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{secrets.API_NODE_HOST}}
-          username: ${{secrets.API_NODE_USER}}
-          key: ${{secrets.API_NODE_PRIVATE_KEY}}
+          host: ${{secrets.SERVER_NODE_HOST}}
+          username: ${{secrets.SERVER_NODE_USER}}
+          key: ${{secrets.SERVER_NODE_PRIVATE_KEY}}
           script: |
-            cd $HOME/to_do_server
+            cd $HOME/demo_api
             git pull
             docker compose pull
