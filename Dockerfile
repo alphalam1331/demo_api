@@ -7,7 +7,7 @@ COPY . .
 
 # Install prod-dependencies
 FROM base AS prod-deps
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --ignore-scripts
 
 # Install dev-dependencies and build
 FROM base AS build
