@@ -20,5 +20,5 @@ jobs:
           script: |
             cd $HOME/demo_api
             git pull
-            exec bash
+            source ~/.bashrc
             pnpm prodc up -d
