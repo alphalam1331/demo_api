@@ -6,7 +6,6 @@ on: # trigger workflow
 
 jobs:
   setup:
-    name: Setting up Node
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository ${{ github.repository }}
@@ -27,16 +26,3 @@ jobs:
         run: pnpm lint
       - name: Testing
         run: pnpm test
-      - name: Build code
-        run: pnpm build
-
-      - name: Upload artifact to github runner
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-file
-          path: |
-            ./dist
-            ./package.json
-            ./pnpm-lock.yaml
-            !**/dist/test/*
-          retention-days: 3

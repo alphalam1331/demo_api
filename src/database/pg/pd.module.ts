@@ -16,6 +16,7 @@ export const pgModule = TypeOrmModule.forRootAsync({
     autoLoadEntities: true,
     synchronize: true,
     logger: 'advanced-console',
+    logging: true,
   }),
   inject: [ConfigService],
 });
