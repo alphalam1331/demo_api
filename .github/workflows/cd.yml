@@ -20,4 +20,4 @@ jobs:
           script: |
             cd $HOME/demo_api
             git pull
-            $HOME/.local/share/pnpm prodc up -d
+            $HOME/.local/share/pnpm/pnpm prodc up -d
