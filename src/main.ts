@@ -14,7 +14,7 @@ async function bootstrap(): Promise<void> {
 
   await app.listen(port);
 
-  Logger.log(`Version: 1`, 'Server Info');
+  Logger.log(`Version: 2`, 'Server Info');
   Logger.log(`Listening on port:${port}`, 'Server Info');
   Logger.log(`Postgres server: http://${pgHost}:${pgPort}`, 'Server Info');
 }
