@@ -1,13 +1,14 @@
 version: '3.5'
 
 services:
-  nest_app:
+  # TODO: add nginx load balancer to enable rolling update
+
+  nest-app:
     build:
       context: .
       target: ${NODE_ENV}
       dockerfile: Dockerfile
-    image: demo_nest_app_${NODE_ENV}
-    container_name: demo_nest_app_${NODE_ENV}
+    image: demo-nest-app-${NODE_ENV}
     restart: unless-stopped
     env_file: 'env/.env.${NODE_ENV}'
     expose:
@@ -20,7 +21,7 @@ services:
     extends:
       file: compose-pg.yaml
       service: pg
-  pgadmin:
+  pg-admin:
     extends:
       file: compose-pg.yaml
-      service: pgadmin
+      service: pg-admin
