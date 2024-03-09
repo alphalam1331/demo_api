@@ -1,3 +1,5 @@
+import { join } from 'path';
+
 import { ConfigModule } from '@nestjs/config';
 import Joi from 'joi';
 
@@ -16,6 +18,10 @@ const validationSchema = Joi.object({
 
 export default ConfigModule.forRoot({
   isGlobal: true,
+  envFilePath:
+    process.env.NODE_ENV == 'dev'
+      ? [join(__dirname, '..', '..', 'env', '.env.dev')]
+      : null,
   load: [pgConfig, appConfig],
   validationOptions: {
     allowUnknown: true,

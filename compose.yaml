@@ -1,15 +1,16 @@
+name: 'demo'
 version: '3.5'
 
 services:
-  # TODO: add nginx load balancer to enable rolling update
-
   nest-app:
     build:
       context: .
       target: ${NODE_ENV}
       dockerfile: Dockerfile
-    image: demo-nest-app-${NODE_ENV}
+    image: nest-app-${NODE_ENV}
     restart: unless-stopped
+    environment:
+      - POSTGRES_HOST=pg
     env_file: 'env/.env.${NODE_ENV}'
     expose:
       - 3000
