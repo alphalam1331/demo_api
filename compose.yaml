@@ -9,8 +9,6 @@ services:
       dockerfile: Dockerfile
     image: nest-app-${NODE_ENV}
     restart: unless-stopped
-    environment:
-      - POSTGRES_HOST=pg
     env_file: 'env/.env.${NODE_ENV}'
     expose:
       - 3000
