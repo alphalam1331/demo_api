@@ -10,14 +10,13 @@ import {
 } from '@nestjs/common';
 import { DeleteResult, UpdateResult } from 'typeorm';
 
-import { BooksService } from './books.service';
-import { CreateBookDto } from '../../models/book/create-book.dto';
-import { UpdateBookDto } from '../../models/book/update-book.dto';
-import { CreateReviewDto } from '../../models/review/create-review.dto';
-import { UpdateReviewDto } from '../../models/review/update-review.dto';
-
-import { Book } from 'src/models/book/book.entity';
-import { Review } from 'src/models/review/review.entity';
+import { BooksService } from '@/app/books/books.service';
+import { Book } from '@/models/book/book.entity';
+import { CreateBookDto } from '@/models/book/create-book.dto';
+import { UpdateBookDto } from '@/models/book/update-book.dto';
+import { CreateReviewDto } from '@/models/review/create-review.dto';
+import { Review } from '@/models/review/review.entity';
+import { UpdateReviewDto } from '@/models/review/update-review.dto';
 
 @Controller('books')
 export class BooksController {

@@ -2,12 +2,12 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 
-import { Book } from '../../models/book/book.entity';
-import { CreateBookDto } from '../../models/book/create-book.dto';
-import { UpdateBookDto } from '../../models/book/update-book.dto';
-import { CreateReviewDto } from '../../models/review/create-review.dto';
-import { Review } from '../../models/review/review.entity';
-import { UpdateReviewDto } from '../../models/review/update-review.dto';
+import { Book } from '@/models/book/book.entity';
+import { CreateBookDto } from '@/models/book/create-book.dto';
+import { UpdateBookDto } from '@/models/book/update-book.dto';
+import { CreateReviewDto } from '@/models/review/create-review.dto';
+import { Review } from '@/models/review/review.entity';
+import { UpdateReviewDto } from '@/models/review/update-review.dto';
 
 @Injectable()
 export class BooksService {
