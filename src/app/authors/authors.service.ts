@@ -3,9 +3,9 @@ import { HttpErrorByCode } from '@nestjs/common/utils/http-error-by-code.util';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
 
-import { Author } from '../../models/author/author.entity';
-import { CreateAuthorDto } from '../../models/author/create-author.dto';
-import { UpdateAuthorDto } from '../../models/author/update-author.dto';
+import { Author } from '@/models/author/author.entity';
+import { CreateAuthorDto } from '@/models/author/create-author.dto';
+import { UpdateAuthorDto } from '@/models/author/update-author.dto';
 
 @Injectable()
 export class AuthorsService {

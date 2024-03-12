@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AuthorsController } from './authors.controller';
-import { AuthorsService } from './authors.service';
-import { Author } from '../../models/author/author.entity';
+import { AuthorsController } from '@/app/authors/authors.controller';
+import { AuthorsService } from '@/app/authors/authors.service';
+import { Author } from '@/models/author/author.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Author])],

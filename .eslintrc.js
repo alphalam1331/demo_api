@@ -38,6 +38,7 @@ module.exports = {
     '@typescript-eslint/sort-type-constituents': 'error',
     '@typescript-eslint/no-duplicate-type-constituents': 'error',
     'no-duplicate-imports': 'error',
+    'import/no-unresolved': 'off',
     'import/order': [
       'error',
       {
