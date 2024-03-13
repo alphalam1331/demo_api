@@ -1,14 +1,15 @@
-name: CD pipeline
+name: Update database
 
 on:
-  pull_request:
-    branches:
-      - main
-    types: [closed]
+  workflow_run:
+    workflows: [Deploy built file to remote server]
+    types:
+      - completed
+
 jobs:
   on-success:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Deploy built file to remote server
         uses: appleboy/ssh-action@master
@@ -19,4 +20,4 @@ jobs:
           script: |
             cd $HOME/demo_api
             git pull
-            bash ./scripts/rolling-update.sh
+            bash ./scripts/run-migrations.sh
