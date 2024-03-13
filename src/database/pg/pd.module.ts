@@ -12,9 +12,11 @@ export const pgModule = TypeOrmModule.forRootAsync({
     username: configService.get('pg.user'),
     password: configService.get('pg.password'),
     database: configService.get('pg.db'),
-    entities: [join(__dirname, '..', '..', 'models', '**', '*.entity.{ts|js}')],
+    entities: [
+      join(__dirname, '..', '..', 'models', '**', '*.entity{.ts,.js}'),
+    ],
+    migrations: [__dirname, 'migrations', '*{.ts,.js}'],
     autoLoadEntities: true,
-    synchronize: true,
     logger: 'advanced-console',
     logging: true,
   }),

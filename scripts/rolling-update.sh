@@ -1,10 +1,10 @@
 #! bash
 
 # path
-WORK_DIR="$HOME"/demo_api
+WORKDIR="$HOME"/demo_api
 PNPM="$HOME"/.local/share/pnpm/pnpm
 
-cd "$WORK_DIR"
+cd "$WORKDIR"
 
 "$PNPM" prod:docker build nest-app
 
