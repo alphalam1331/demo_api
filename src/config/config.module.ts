@@ -3,11 +3,10 @@ import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import Joi from 'joi';
 
-import appConfig from '../config/app-config';
-import pgConfig from '../config/pg-config';
+import { appConfig, pgConfig } from '@/config/configurations';
 
 const validationSchema = Joi.object({
-  NODE_ENV: Joi.string().valid('dev', 'prod').required(),
+  NODE_ENV: Joi.string().valid('local', 'dev', 'prod').required(),
   PORT: Joi.number().default(3000),
   POSTGRES_HOST: Joi.string().required(),
   POSTGRES_PORT: Joi.number().required(),
@@ -19,8 +18,8 @@ const validationSchema = Joi.object({
 export default ConfigModule.forRoot({
   isGlobal: true,
   envFilePath:
-    process.env.NODE_ENV == 'dev'
-      ? [join(__dirname, '..', '..', 'env', '.env.dev')]
+    process.env.NODE_ENV == 'local'
+      ? [join(__dirname, '..', '..', 'env', '.env.local')]
       : null,
   load: [pgConfig, appConfig],
   validationOptions: {
