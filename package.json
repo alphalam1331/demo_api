@@ -21,7 +21,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "typeorm-ts-node-commonjs",
+    "db:mg": "typeorm-ts-node-commonjs migration:generate -d ./src/database/pg/datasource.ts ./src/database/pg/migrations/migration",
+    "db:mc": "typeorm-ts-node-commonjs migration:create -d ./src/database/pg/datasource.ts",
+    "db:mrun": "typeorm-ts-node-commonjs migration:run -d ./src/database/pg/datasource.ts",
+    "db:mrvt": "typeorm-ts-node-commonjs migration:revert -d ./src/database/pg/datasource.ts",
     "prepare": "husky",
     "pre-commit": "lint-staged"
   },
