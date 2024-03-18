@@ -2,7 +2,7 @@ name: Update database
 
 on:
   workflow_run:
-    workflows: [Deploy built file to remote server]
+    workflows: [CD pipeline]
     types:
       - completed
 
